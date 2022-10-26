@@ -14,33 +14,7 @@ const Login = () => {
     }
 
     const onLogin = async () => {
-        // var myHeaders = new Headers();
-        // myHeaders.append("Content-Type", "application/json");
-
-        // var raw = JSON.stringify({
-        //     "username": username,
-        //     "password": password
-        // });
-
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: myHeaders,
-        //     body: raw,
-        //     redirect: 'follow'
-        // };
-
-        // fetch("http://localhost:8080/login", requestOptions)
-        //     .then(response => response.text())
-        //     .then(result => console.log(result))
-        //     .catch(error => console.log('error', error));
-
-        // const user = {
-        //     username: username,
-        //     password: password
-        // };
-        // axios.post('http://localhost:8080/login', user)
-        //     .then(response => console.log(response));
-
+    
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -55,10 +29,13 @@ const Login = () => {
             .then(res => {
                 console.log(res);
                 console.log(res.data);
+                if(res.status == 200){
+                    window.location = 'https://www.youtube.com/'
+                }
             })
+            
 
     }
-
 
     return (
         <form>
