@@ -5,7 +5,7 @@ const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-
+    const [value,setValue]=useState()
     const onChangeUsername = (event) => {
         setUsername(event.target.value)
     }
@@ -30,7 +30,8 @@ const Login = () => {
                 console.log(res);
                 console.log(res.data);
                 if(res.status == 200){
-                    window.location = 'https://www.youtube.com/'
+                    // window.location = 'https://www.youtube.com/'
+                    setValue('thanh cong')
                 }
             })
             
@@ -47,10 +48,12 @@ const Login = () => {
                 <label>password</label>
                 <input type="password" name="password" onChange={onChangePassword}></input>
             </div>
+            <div>{value}</div>
             <div>
                 <button type="button" onClick={onLogin}>Login</button>
             </div>
         </form>
+       
     )
 
 }
