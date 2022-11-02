@@ -53,26 +53,24 @@ const Register = () => {
 return (
     <body>
     <form id="form">
-        <div>
+
             <label>Username</label>
             <input type="text" name="username" onChange={onChangeUsername}required></input>
-        </div>
-        <div>
+
+  
             <label>Password</label>
             <input type="password" name="password" onChange={onChangePassword}required></input>
-        </div>
-        <div>
+     
+    
             <label>Email</label>
             <input type="text" name="email" onChange={onChangeEmail}required></input>
-        </div>
-        <div>
+     
+  
             <label>Phone</label>
             <input type="text" name="phone" onChange={onChangePhone}required></input>
-        </div>
+
         <div>{value}</div>
-        <div>
             <button type="button" onClick={onRegister}>Register</button>
-        </div>
     </form>
     </body>
 )
