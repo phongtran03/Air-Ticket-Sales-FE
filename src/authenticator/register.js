@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import './register.css';
-import Login from './login';
 const Register = () => {
 
     const [username, setUsername] = useState('')
@@ -33,46 +32,49 @@ const Register = () => {
                 "email" : email,
                 "phone": phone
             },
-            url: 'http://localhost:8080/api/user/register',
+            url: 'http://localhost:8080/api/v1/user/register',
         }
 
-        axios(options)
+        axios.post(options.url, options.data)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
                 if(res.status == 200){
                     console.log(res);
-                    window.location = Login
+                    // window.location = Login
                     setValue('thanh cong')
-                }
+                } 
+            }).catch(error=> {
+                setValue(error.response.data.message);
+
             })
-            
     }
 
 return (
-    <form>
+    <body>
+    <form id="form">
         <div>
             <label>Username</label>
-            <input type="text" name="username" onChange={onChangeUsername}></input>
+            <input type="text" name="username" onChange={onChangeUsername}required></input>
         </div>
         <div>
             <label>Password</label>
-            <input type="password" name="password" onChange={onChangePassword}></input>
+            <input type="password" name="password" onChange={onChangePassword}required></input>
         </div>
         <div>
             <label>Email</label>
-            <input type="text" name="email" onChange={onChangeEmail}></input>
+            <input type="text" name="email" onChange={onChangeEmail}required></input>
         </div>
         <div>
             <label>Phone</label>
-            <input type="text" name="phone" onChange={onChangePhone}></input>
+            <input type="text" name="phone" onChange={onChangePhone}required></input>
         </div>
         <div>{value}</div>
         <div>
             <button type="button" onClick={onRegister}>Register</button>
         </div>
     </form>
-   
+    </body>
 )
 }
 export default Register

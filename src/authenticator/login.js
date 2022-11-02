@@ -31,29 +31,31 @@ const Login = () => {
                 console.log(res);
                 console.log(res.data);
                 if(res.status == 200){
-                    // window.location = 'https://www.youtube.com/'
                     setValue('thanh cong')
                 }
+            }).catch(error => {
+                setValue(error.response.data.message);
             })
             
     }
 
     return (
+        <body>
         <form>
             <div>
                 <label>Username</label>
-                <input type="text" name="username" onChange={onChangeUsername}></input>
+                <input type="text" name="username" onChange={onChangeUsername} required></input>
             </div>
             <div>
                 <label>password</label>
-                <input type="password" name="password" onChange={onChangePassword}></input>
+                <input type="password" name="password" onChange={onChangePassword} required></input>
             </div>
             <div>{value}</div>
             <div>
                 <button type="button" onClick={onLogin}>Login</button>
             </div>
         </form>
-       
+        </body>
     )
 
 }
