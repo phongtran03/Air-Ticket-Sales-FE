@@ -52,25 +52,22 @@ const Register = () => {
 
 return (
     <body>
+        <header>HIII</header>
     <form id="form">
+            <h3>REGISTER</h3>
+            <div class = "form-input">
+            <input type="text" name="username" onChange={onChangeUsername} placeholder="username"></input>
 
-            <label>Username</label>
-            <input type="text" name="username" onChange={onChangeUsername}required></input>
-
-  
-            <label>Password</label>
-            <input type="password" name="password" onChange={onChangePassword}required></input>
+            <input type="password" name="password" onChange={onChangePassword} placeholder="password"></input>
      
-    
-            <label>Email</label>
-            <input type="text" name="email" onChange={onChangeEmail}required></input>
+            <input type="text" name="email" onChange={onChangeEmail} placeholder="email"></input>
      
-  
-            <label>Phone</label>
-            <input type="text" name="phone" onChange={onChangePhone}required></input>
+            <input type="text" name="phone" onChange={onChangePhone} placeholder="phone"></input>
 
-        <div>{value}</div>
             <button type="button" onClick={onRegister}>Register</button>
+
+            <div>{value}</div>
+            </div>
     </form>
     </body>
 )
